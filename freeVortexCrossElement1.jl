@@ -44,8 +44,8 @@ end
 makeMarker(x, y) = makeMarker(x, y, 0.2, 0.2)
 
 function plotMarker!(p,m::Marker)
-    Plots.plot!(p,[m.ts1,m.ts2,m.tf1,m.tf2,m.ts1],[m.rs1,m.rs2,m.rf1,m.rf2,m.rs1],legend = false, proj = :polar,linewidth = 3)
-    # Plots.plot!(p,[m.ts2,m.tf2],[m.rs2,m.rf2],legend = false, proj = :polar, linewidth = 3)
+    Plots.plot!(p,[m.ts1,m.tf1],[m.rs1,m.rf1],legend = false, proj = :polar,linewidth = 3)
+    Plots.plot!(p,[m.ts2,m.tf2],[m.rs2,m.rf2],legend = false, proj = :polar, linewidth = 3)
 end
 
 
@@ -105,18 +105,18 @@ function main()
     # ====================== ADD MARKERS HERE =================
     # marker(r,θ (rad),first arm lenght, second arm lenght)
     push!(markers,makeMarker(.9, 0, .2, .2)) # example with length
-    # push!(markers,makeMarker(.9, pi/2, .2, .2))
-    # push!(markers,makeMarker(.9, -pi/2))
-    # push!(markers,makeMarker(.9, pi))
+    push!(markers,makeMarker(.9, pi/2, .2, .2))
+    push!(markers,makeMarker(.9, -pi/2))
+    push!(markers,makeMarker(.9, pi))
     push!(markers,makeMarker(.5, 0, .2, .2)) # example with length
-    # push!(markers,makeMarker(.5, pi/2, .2, .2))
-    # push!(markers,makeMarker(.5, -pi/2))
-    # push!(markers,makeMarker(.5, pi))
+    push!(markers,makeMarker(.5, pi/2, .2, .2))
+    push!(markers,makeMarker(.5, -pi/2))
+    push!(markers,makeMarker(.5, pi))
     # =========================================================
 
 
     anim = @animate for nt = 0:NTIME
-        p1 =  plot(title = "Stream lines for a free wortex flow", proj = :polar)
+        p1 =  plot(title = "Stream lines for a free vortex flow", proj = :polar)
         plotSi!(p1,SISTEPS)
 
         for m in markers
@@ -125,7 +125,7 @@ function main()
         end
 
     end
-    gif(anim, "ResultSquareElement.gif", fps = FRAMERATE)
+    gif(anim, "ResultCrossElement1.gif", fps = FRAMERATE)
 
 end
 

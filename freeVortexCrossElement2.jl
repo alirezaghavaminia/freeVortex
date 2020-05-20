@@ -116,7 +116,7 @@ function main()
 
 
     anim = @animate for nt = 0:NTIME
-        p1 =  plot(title = "Stream lines for a free wortex flow", proj = :polar)
+        p1 =  plot(title = "Stream lines for a free vortex flow", proj = :polar)
         plotSi!(p1,SISTEPS)
 
         for m in markers
