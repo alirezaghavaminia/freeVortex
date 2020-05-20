@@ -1,6 +1,6 @@
-# freeWortex
-free Wortex Flow demonstration
-Stream lines for a free wortex flow
+# freeVortex
+free Vortex Flow demonstration
+Stream lines for a free vortex flow
 
 ![pic2](/ResultSquareElementMultiple.gif)
 
